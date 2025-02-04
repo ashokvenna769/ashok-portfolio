@@ -5,11 +5,17 @@ My personal Portfolio
 # About me
 Hello, My name is Ashok Kumar Venna
 #  Technical Skills
+  - C#
+  - ASP.NET
+  - ASP.NET CORE 
+  - ASP.NET MVC
+  - SQL
+  - NO-SQL(Cosmos DB,mongo DB)
+  - React 
+  - Angular
+  - HTML
   - Kubernetes
   - Azure
-  - AWS
   - Docker
-  - Linux
-  - Bash
   - Powershell
   - Python
