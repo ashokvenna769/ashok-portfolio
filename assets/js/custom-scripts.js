@@ -346,24 +346,30 @@
           }
        });
     
-        function submitForm(){
-          var name = $("#name").val();
-          var email = $("#email").val();
-          var message = $("#message").val();
-          $.ajax({
-              type: "POST",
-              url: "process.php",
-              data: "name=" + name + "&email=" + email + "&message=" + message,
-              success : function(text){
-                  if (text == "success"){
-                      formSuccess();
-                    } else {
-                      formError();
-                      submitMSG(false,text);
-                    }
-                }
-            });
-        }
+       function submitForm() {
+        var formData = {
+            first_name: $("#name").val(),
+            last_name: $("#L_name").val(),
+            email: $("#email").val(),
+            message: $("#message").val()
+        };
+    
+        $.ajax({
+            type: "POST",
+            url: "https://formspree.io/f/xwpvbglo",  // Use Formspree URL here
+            data: formData,
+            dataType: "json",  // Formspree expects JSON in return
+            success: function(response) {
+                formSuccess();
+            },
+            error: function(xhr, status, error) {
+                formError();
+                submitMSG(false, "Oops! Something went wrong.");
+                console.error("Error:", error);
+            }
+        });
+      }
+    
         function formSuccess(){
             $("#contactForm")[0].reset();
             submitMSG(true, "Message Sent!")
